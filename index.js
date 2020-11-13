@@ -7,7 +7,10 @@ INIT
     -unauthorized_callback (function) of the result is 403
 
 */
-const fetch = require("node-fetch");
+if (typeof window === "undefined") {
+  // this is node
+  fetch = require("node-fetch");
+}
 
 class Api {
   prefix = "";
