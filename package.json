@@ -1,6 +1,6 @@
 {
   "name": "mdpapi",
-  "version": "1.0.4",
+  "version": "1.0.22",
   "description": "simplified API fetch module",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "url": "https://github.com/marDonchev/mdpAPI/issues"
   },
   "homepage": "https://github.com/marDonchev/mdpAPI#readme",
-  "dependencies": {
+  "devDependencies": {
     "node-fetch": "^2.6.1"
   }
 }
