@@ -1,6 +1,6 @@
 {
   "name": "mdpapi",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "simplified API fetch module",
   "main": "index.js",
   "scripts": {

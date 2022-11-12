@@ -236,9 +236,8 @@ const Api = class {
       //   _errorCallback
       // );
 
-      const startTime =
-        process && process.hrtime ? process.hrtime() : performance.now();
-
+      const startTime = !isBrowser() ? (process && process.hrtime()) : performance.now();
+ 
       let settingsObject = {
         method: _method,
       };
@@ -288,14 +287,10 @@ const Api = class {
               return res.json ? res.json() : res.data;
             })
             .then((res) => {
-              const hrtime =
-                process && process.hrtime
-                  ? process.hrtime(startTime)
-                  : performance.now();
-              const seconds =
-                process && process.hrtime
-                  ? (hrtime[0] + hrtime[1] / 1e9).toFixed(3)
-                  : ((hrtime - startTime) / 1000).toFixed(3);
+              const hrtime = !isBrowser() ? (process && process.hrtime(startTime)) : performance.now();
+ 
+              const seconds = !isBrowser() ? (hrtime[0] + hrtime[1] / 1e9).toFixed(3) : ((hrtime - startTime) / 1000).toFixed(3);
+               
 
               this._log(
                 `${_method.toUpperCase()} > ${_command} | STATUS: ${resStatus} | TIME: ${seconds} seconds`
@@ -354,14 +349,9 @@ const Api = class {
               return res.json ? res.json() : res.data;
             })
             .then((res) => {
-              const hrtime =
-                process && process.hrtime
-                  ? process.hrtime(startTime)
-                  : performance.now();
-              const seconds =
-                process && process.hrtime
-                  ? (hrtime[0] + hrtime[1] / 1e9).toFixed(3)
-                  : ((hrtime - startTime) / 1000).toFixed(3);
+              const hrtime = !isBrowser() ? process && process.hrtime(startTime) : performance.now();
+
+              const seconds = !isBrowser() ? (hrtime[0] + hrtime[1] / 1e9).toFixed(3) : ((hrtime - startTime) / 1000).toFixed(3);
 
               this._log(
                 `${_method.toUpperCase()} > ${_command} | STATUS: ${resStatus} | TIME: ${seconds} seconds`
@@ -431,5 +421,25 @@ const Api = class {
     return str.join("&");
   }
 };
+
+const isBrowser = () => {
+
+    // Check if the environment is Node.js
+    if (typeof process === "object" &&
+        typeof require === "function") {
+        return false;
+    }
+
+    // Check if the environment is a
+    // Service worker
+    if (typeof importScripts === "function") {
+        return false;
+    }
+
+    // Check if the environment is a Browser
+    if (typeof window === "object") {
+        return true;
+    }
+}
 
 module.exports = Api;
