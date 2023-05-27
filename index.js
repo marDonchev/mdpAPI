@@ -314,11 +314,10 @@ const Api = class {
 						.catch((err) => {
 							if (!_successCallback) {
 								// Promise
-								reject(err.message, err.response && err.response);
+								reject(err);
 							} else {
 								//
-								if (typeof _errorCallback === "function")
-									_errorCallback(err.message, err.response && err.response);
+								if (typeof _errorCallback === "function") _errorCallback(err);
 							}
 						});
 
@@ -374,11 +373,10 @@ const Api = class {
 						.catch((err) => {
 							if (!_successCallback) {
 								// Promise
-								reject(err.message, err.response && err.response);
+								reject(err);
 							} else {
 								//
-								if (typeof _errorCallback === "function")
-									_errorCallback(err.message, err.response && err.response);
+								if (typeof _errorCallback === "function") _errorCallback(err);
 							}
 						});
 
