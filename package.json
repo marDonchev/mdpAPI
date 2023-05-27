@@ -1,22 +1,22 @@
 {
-  "name": "mdpapi",
-  "version": "1.0.23",
-  "description": "simplified API fetch module",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/marDonchev/mdpAPI.git"
-  },
-  "author": "marDonchev",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/marDonchev/mdpAPI/issues"
-  },
-  "homepage": "https://github.com/marDonchev/mdpAPI#readme",
-  "devDependencies": {
-    "node-fetch": "^2.6.1"
-  }
+	"name": "mdpapi",
+	"version": "1.0.26",
+	"description": "simplified API fetch module",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/marDonchev/mdpAPI.git"
+	},
+	"author": "marDonchev",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/marDonchev/mdpAPI/issues"
+	},
+	"homepage": "https://github.com/marDonchev/mdpAPI#readme",
+	"devDependencies": {
+		"node-fetch": "^2.6.1"
+	}
 }
